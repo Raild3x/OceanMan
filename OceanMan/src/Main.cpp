@@ -1,6 +1,9 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <iostream>
+#include "../util/Vector2.h"
+
+using namespace std;
 
 int main(void) {
 	GLFWwindow* window;
@@ -19,9 +22,20 @@ int main(void) {
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
 
+	double lastTime = glfwGetTime();
+	int frames = 0;
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window)){
-		std::cout << glfwGetTime() << std::endl;
+		frames++;
+		if (lastTime + 1 <= glfwGetTime()) {
+			cout << frames << endl;
+			lastTime = glfwGetTime();
+			frames = 0;
+		}
+		for (int i = 0; i < 1000000; i++) {
+			Vector2 v(5, 10);
+		}
+		
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
