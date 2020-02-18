@@ -1,7 +1,8 @@
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 #include <stdio.h>
 #include <iostream>
-#include "../util/Vector2.h"
+#include <chrono>
+#include "vec2.h"
 
 using namespace std;
 
@@ -29,11 +30,13 @@ int main(void) {
 		frames++;
 		if (lastTime + 1 <= glfwGetTime()) {
 			cout << frames << endl;
+			//cout << chrono::high_resolution_clock::now() << endl;
 			lastTime = glfwGetTime();
 			frames = 0;
 		}
-		for (int i = 0; i < 1000000; i++) {
-			Vector2 v(5, 10);
+		for (int i = 0; i < 2000; i++) {
+			vec2f v(i, i*2);
+			cout << v.toString() << endl;
 		}
 		
 		/* Render here */
