@@ -7,6 +7,7 @@
 using namespace std;
 
 int main(void) {
+	cout << "Hello World" << endl;
 	GLFWwindow* window;
 
 	/* Initialize the library */
